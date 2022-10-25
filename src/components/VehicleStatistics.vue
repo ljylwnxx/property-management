@@ -15,12 +15,12 @@ let $echarts = inject("echarts")
 
 onMounted(()=>{
    let myChart = $echarts.init(document.getElementById("chartfour"))
-   link(apiUrl.chartDataFour).then((ok)=>{
+   link("/getChartDataFour?apipost_id=535400").then((ok)=>{
      let {data} = ok
       myChart.setOption({
         xAxis:{
             type:"category",
-            data:data.day,
+            data:data.chartDataFour.day,
             axisLine:{
                 lineStyle:{
                     color:"#fff"
@@ -45,17 +45,17 @@ onMounted(()=>{
         series:[
                 {
                 type:"bar",
-                data:data.num.一般用户,
+                data:data.chartDataFour.num.一般用户,
                 stack:"Total"
                 },
                 {
                 type:"bar",
-                data:data.num.月租用户,
+                data:data.chartDataFour.num.月租用户,
                 stack:"Total"
                 },
                 {
                 type:"bar",
-                data:data.num.特殊车辆,
+                data:data.chartDataFour.num.特殊车辆,
                 stack:"Total"
                 }
             ],

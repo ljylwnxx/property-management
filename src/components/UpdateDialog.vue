@@ -51,8 +51,8 @@
 
       }
 
-      link(apiUrl.userlist+"/"+store.state.HomeModule.uplistData.id,"PUT",data).then((ok:any)=>{
-        console.log(ok)
+      link("/updateDialog?apipost_id=e0e40f"+"/"+store.state.HomeModule.uplistData.id,"PUT",data).then((ok:any)=>{
+        console.log(ok, 'op')
       })
     }
     store.commit("DIALOG")

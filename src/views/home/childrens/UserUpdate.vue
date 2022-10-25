@@ -84,9 +84,9 @@ let tableData = reactive({
 
 onMounted(()=>{
   store.dispatch("USERUPDATE_LIST")
-  link(apiUrl.userlist).then((ok:any)=>{
+  link("/getUserList?apipost_id=2689ba").then((ok:any)=>{
    console.log(ok);
-   tableData.listdata = ok.data
+   tableData.listdata = ok.data.userlist
   })
 
   

@@ -17,10 +17,10 @@ let $echarts = inject("echarts")
 
 onMounted(()=>{
    let myChart = $echarts.init(document.getElementById("chartone"))
-   link(apiUrl.chartDataOne).then((ok)=>{
+   link("/getChartDataOne?apipost_id=a96e43").then((ok)=>{
      let {data} = ok
-     xdata = data.map(v=>v.title)
-     ydata = data.map(v=>v.num)
+     xdata = data.chartDataOne.map(v=>v.title)
+     ydata = data.chartDataOne.map(v=>v.num)
         myChart.setOption({
         xAxis:{
             type:"value",

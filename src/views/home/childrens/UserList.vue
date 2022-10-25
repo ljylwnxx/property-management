@@ -51,15 +51,18 @@ let tableData = reactive({
 
 
 let searchLink=()=>{
-  link(apiUrl.userlist,"get",{},{name:search.value}).then((ok:any)=>{
-   tableData.listdata = ok.data
+  link("/getUserList?apipost_id=2689ba","get",{},{name:search.value}).then((ok:any)=>{
+   tableData.listdata = Object.values(ok.data.userlist)
+  //  tableData.listdata = ok.data.userlist
+  //  console.log(tableData.listdata, 'll');
+   
   })
 }
 
 
 onMounted(()=>{
-  link(apiUrl.userlist).then((ok:any)=>{
-   tableData.listdata = ok.data
+  link("/getUserList?apipost_id=2689ba").then((ok:any)=>{
+    tableData.listdata = ok.data.userlist
   })
 })
 </script>

@@ -170,8 +170,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       if(model.value==="login"){
         console.log("登录")
-
-        link(apiUrl.register,"get",{},{name:ruleForm.username,pwd:useMd5(ruleForm.password).value}).then((ok:any)=>{
+        link("/login?apipost_id=853c1e","get",{},{name:ruleForm.username,pwd:useMd5(ruleForm.password).value}).then((ok:any)=>{
         //  console.log(ok);
          if(ok.data.length!==0){
           ElMessage("登录成功");

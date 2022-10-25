@@ -15,13 +15,13 @@ let $echarts = inject("echarts")
 
 onMounted(()=>{
    let myChart = $echarts.init(document.getElementById("chartthree"))
-   link(apiUrl.chartDataThree).then((ok)=>{
+   link("/getChartDataThree?apipost_id=a8f800").then((ok)=>{
      
       myChart.setOption({
             series:[
                 {
                 type:"pie",
-                data:ok.data,
+                data:ok.data.chartDataThree,
                 radius:[10,100],
                 center:["50%","45%"],
                 roseType:"area",

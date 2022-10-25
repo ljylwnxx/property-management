@@ -15,12 +15,12 @@ let $echarts = inject("echarts")
 
 onMounted(()=>{
    let myChart = $echarts.init(document.getElementById("charttwo"))
-   link(apiUrl.chartDataTwo).then((ok)=>{
+   link("/getChartDataTwo?apipost_id=0e2353").then((ok)=>{
      
       myChart.setOption({
         xAxis:{
             type:"category",
-            data:ok.data.day,
+            data:ok.data.chartDataTwo.day,
             boundaryGap:false,
             axisLine:{
                 lineStyle:{
@@ -47,7 +47,7 @@ onMounted(()=>{
             {
                 type:"line",
                 name:"外卖",
-                data:ok.data.num.外卖,
+                data:ok.data.chartDataTwo.num.外卖,
                 stack:"Total",
                 smooth:true,
                 areaStyle:{
@@ -70,7 +70,7 @@ onMounted(()=>{
             {
                 type:"line",
                 name:"快递",
-                data:ok.data.num.快递,
+                data:ok.data.chartDataTwo.num.快递,
                 stack:"Total",
                 smooth:true,
                 areaStyle:{
@@ -93,7 +93,7 @@ onMounted(()=>{
             {
                 type:"line",
                 name:"一般访客",
-                data:ok.data.num.一般访客,
+                data:ok.data.chartDataTwo.num.一般访客,
                 stack:"Total",
                 smooth:true,
                 areaStyle:{
@@ -116,7 +116,7 @@ onMounted(()=>{
             {
                 type:"line",
                 name:"授权访客",
-                data:ok.data.num.授权访客,
+                data:ok.data.chartDataTwo.num.授权访客,
                 stack:"Total",
                 smooth:true,
                 areaStyle:{

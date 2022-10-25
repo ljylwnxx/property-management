@@ -28,13 +28,12 @@ let HomeModule:Object={
     },
     actions:{
       USERUPDATE_LIST(context: any){
-        link(apiUrl.userlist).then((ok: any)=>{
-          console.log(ok);
-          context.commit("LISTDATA",ok.data)
+        link("/getUserList?apipost_id=2689ba").then((ok: any)=>{
+          context.commit("LISTDATA",ok.data.userlist)
          })
       },
       DEL_DATA(context: any, payload: any){
-        link(apiUrl.userlist+"/"+payload.id,"delete").then((ok: any)=>{
+        link("/getUserList?apipost_id=2689ba"+"/"+payload.id,"delete").then((ok: any)=>{
           console.log(ok);
           window.location.reload()
          }) 
