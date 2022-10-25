@@ -34,7 +34,6 @@ let HomeModule:Object={
       },
       DEL_DATA(context: any, payload: any){
         link("/getUserList?apipost_id=2689ba"+"/"+payload.id,"delete").then((ok: any)=>{
-          console.log(ok);
           window.location.reload()
          }) 
       }
